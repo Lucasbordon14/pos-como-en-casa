@@ -15,18 +15,18 @@ Las historias de usuario corresponden a la tarea 1.4 planificada en el Diagrama 
 **Como** moza, **quiero** registrar los pedidos de las mesas desde mi celular, **para** no tener que trasladarlos a la cocina y quedar disponible para atender otras mesas.
 
 **Criterios de aceptación:**
-- Antes de enviar el pedido, el sistema muestra un resumen para que la moza lo repita al cliente y lo confirme o lo modifique.
-- El pedido llega a cocina en 5 segundos o menos desde que se confirma (meta M1).
+- Antes de enviar la comanda, el sistema muestra un resumen para que la moza lo repita al cliente y lo confirme o lo modifique.
+- La comanda llega a cocina en 5 segundos o menos desde que se confirma (meta M1).
 - Se pueden agregar productos a un pedido mientras no esté cobrado.
 - Solo se pueden elegir productos activos de la carta.
 
 ## POS-6 – Comandas en cocina
 
-**Como** personal de cocina, **quiero** ver los pedidos pendientes con su detalle y marcarlos en preparación y listos, **para** prepararlos sin errores de lectura o interpretación.
+**Como** personal de cocina, **quiero** ver las comandas pendientes con su detalle y marcarlas en preparación y listas, **para** prepararlas sin errores de lectura o interpretación.
 
 **Criterios de aceptación:**
-- Los pedidos se muestran en orden de llegada, con mesa, productos y cantidades.
-- Al marcar un pedido como "listo", la moza recibe un aviso en su celular.
+- Las comandas se muestran en orden de llegada, con mesa, productos y cantidades.
+- Al marcar una comanda como "lista", la moza recibe un aviso en su celular.
 
 ## POS-7 – Cobro
 
