@@ -63,13 +63,23 @@ Meta: generar el total de cada mesa en menos de 10 s, con 0 errores de cálculo 
 
 | Elemento | Definición |
 |---|---|
-| **Fórmula** | (Cuentas con error ÷ total de cuentas cobradas) × 100 |
+| **Fórmula** | (Cuentas con error de cálculo o de promoción ÷ total de cuentas revisadas) × 100 |
 | **Estándar** | 0 % |
-| **Frecuencia** | Diaria durante la piloto (cierre de caja). En la prueba integral, sobre todas las cuentas de prueba. |
-| **Fuente del dato** | 1) **Arqueo diario:** lo cobrado según el sistema, separado por `medio_pago`, se compara con el efectivo contado en caja y con las transferencias recibidas. 2) **Revisión manual de las cuentas con promociones** (por ejemplo, el 2x1 en jugos): se recalcula a mano el total y se compara con el del sistema. |
-| **Responsable** | Medición: ambos integrantes (4.2) y Valentin (5.3). Evaluación: Lucas (5.4). Después del proyecto: la propietaria, en su cierre de caja. |
+| **Frecuencia** | En la prueba integral (4.2), sobre todas las cuentas de prueba. Diaria durante la piloto (5.3). |
+| **Fuente del dato** | **Recálculo manual de las cuentas**: a partir del detalle cargado (cantidad × precio unitario − descuento de cada línea), se calcula el total a mano y se compara con el que generó el sistema. En la prueba integral se recalculan todas las cuentas. En la piloto, todas las que tienen promoción (por ejemplo, el 2x1 en jugos) más una muestra de las demás. |
+| **Responsable** | Medición: ambos integrantes (4.2) y Valentin (5.3). Evaluación: Lucas (5.4). Después del proyecto: la propietaria. |
 
-No alcanza con comparar las cuentas contra los pedidos registrados. El sistema calcula el total desde esos mismos registros, así que se estaría comparando consigo mismo. Los errores que sí pueden ocurrir son **de carga** (un producto o cantidad mal cargados) o **de promoción** (un descuento mal aplicado), y se detectan comparando con una fuente externa al cálculo: la caja real. Esa comparación toma como base el registro que la dueña ya lleva, con una columna de efectivo y otra de transferencias (Entrega N.º 3).
+**Qué errores cuentan para M2-b.** M2 mide el **cálculo del total**, así que solo cuentan dos tipos de error:
+
+- **Cálculo:** el total no coincide con la suma de las líneas.
+- **Promoción:** el descuento aplicado no corresponde a la promoción vigente.
+
+Otros dos tipos de error se registran como desvíos, pero no de M2:
+
+- **Carga:** la moza cargó un producto o una cantidad que no correspondía. Se registra como desvío de POS-5, porque es lo que busca evitar el resumen de confirmación antes de enviar la comanda. Se detecta por un reclamo del cliente o de la moza al entregar.
+- **Cobro:** por ejemplo, un vuelto mal dado o una transferencia que no se recibió. No depende del sistema, y se detecta en el **arqueo diario**: lo cobrado según el sistema, separado por `medio_pago`, se compara con el efectivo contado y con las transferencias recibidas. Esa comparación toma como base el registro que la dueña ya lleva, con una columna de efectivo y otra de transferencias (Entrega N.º 3).
+
+**Por qué el arqueo no sirve como fuente de M2-b.** Un control solo detecta un error si compara contra una fuente independiente de lo que se quiere controlar. Si el sistema calcula mal un total, el cliente paga ese total mal calculado, y la caja coincide con lo que registró el sistema. El arqueo cierra igual, y el error de cálculo pasa sin detectarse. Tampoco alcanza con comparar las cuentas contra los pedidos registrados, porque el sistema calcula el total desde esos mismos registros. Por eso la fuente es el recálculo manual: es un cálculo independiente del que hace el sistema.
 
 ## M3 – Escalabilidad
 
@@ -94,10 +104,23 @@ Meta: implementar el sistema en funcionamiento en el local en un plazo máximo d
 | **Fórmula** | Desvío de plazo = semana real de cumplimiento del hito − semana planificada. Seguimiento: (tareas terminadas a la fecha ÷ tareas planificadas a la fecha) × 100 |
 | **Estándar** | Desvío ≤ 0 semanas en el hito final (semana 20). Seguimiento: 100 % de las tareas de la ruta crítica al día. |
 | **Frecuencia** | Semanal (revisión del tablero), y en cada hito de control: validación de prototipos (semana 6), prueba integral (semana 16) y evaluación de resultados (semana 20). |
-| **Fuente del dato** | Diagrama de Gantt (Entrega N.º 2) y tablero de Jira (estado de las tareas por sprint). |
+| **Fuente del dato** | Diagrama de Gantt (Entrega N.º 2) como plan, y tablero de Jira como registro del avance real. Como establece la Entrega N.º 2, "el seguimiento de las tareas se realizará en Jira". Siguiendo Scrum, las tareas del Gantt se cargan en el backlog de cada sprint a medida que avanza el proyecto. Por eso hoy Jira tiene solo las tres historias de usuario del Sprint 1. |
 | **Responsable** | Seguimiento: ambos integrantes, porque la ruta crítica incluye tareas de los dos (Entrega N.º 2). Evaluación final: Lucas (5.4). |
 
-Si se detecta un atraso en una tarea de la ruta crítica, la acción correctiva es usar la holgura prevista: el margen de contingencia de la semana 12 y la semana de espera entre el diseño y la construcción de la base de datos (semana 6).
+Si se detecta un atraso en una tarea de la ruta crítica, la acción correctiva es usar la holgura prevista: la semana de espera entre el diseño y la construcción de la base de datos (semana 6) y el margen de contingencia de la semana 12. Se usa primero la holgura más cercana al atraso, para no consumir antes de tiempo la reserva del receso de Navidad.
+
+### Desvío registrado N.º 1 – Tarea 1.4 (historias de usuario)
+
+| Elemento | Registro |
+|---|---|
+| **Tarea** | 1.4 Redacción y priorización de historias de usuario (ambos integrantes). Pertenece a la ruta crítica. |
+| **Planificado** | Semana 3 (19/10 al 25/10). |
+| **Real** | Semana 4: se formalizó el 26/10, primer día de la semana, con la aprobación del PR #1. |
+| **Desvío** | +1 semana. |
+| **Causa** | La tarea se postergó porque el equipo organizó su trabajo según los requisitos de cada entrega académica, y las historias de usuario recién se exigieron en la Entrega N.º 4. |
+| **Acción correctiva** | Se usó la holgura de la semana 6. El diseño de la base de datos (2.1) y el diseño de interfaces (2.2), que dependen de 1.4, pasan a las semanas 5–6, y el hito de validación de prototipos (2.3), a la semana 7. La construcción de la base de datos (3.1) sigue empezando en la semana 7, por lo que la ruta crítica y el plazo final no cambian. El margen de contingencia de la semana 12 queda intacto. |
+| **Impacto en otros hitos** | El hito 2.3 se corre una semana, pero no pertenece a la ruta crítica: la tarea que depende de él (3.2) empieza en la semana 9. |
+| **Aprendizaje** | Las tareas del Gantt se cargan en el backlog de cada sprint, para que no dependan de las fechas de entrega. |
 
 ## Acción ante desvíos
 
@@ -111,7 +134,7 @@ Para medir M1-a se incorporó la entidad **Comanda**, que representa cada envío
 |---|---|---|
 | id_comanda | Integer | Identificador único de cada envío a cocina. |
 | id_pedido | Integer | Clave foránea: pedido (cuenta de la mesa) al que pertenece. |
-| estado | String | Pendiente, en preparación, listo o entregado. |
+| estado | String | Pendiente, en preparación, lista o entregada (en femenino, porque son estados de la comanda). |
 | fecha_hora_envio | DateTime | Momento en que la moza confirma y el sistema envía la comanda. |
 | fecha_hora_recepcion | DateTime | Momento en que la tablet de cocina muestra la comanda. |
 
