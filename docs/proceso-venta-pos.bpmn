@@ -28,7 +28,7 @@
 <bpmn:task id="T4" name="Confirmar comanda"><bpmn:incoming>F4</bpmn:incoming><bpmn:outgoing>F7</bpmn:outgoing></bpmn:task>
 <bpmn:serviceTask id="S1" name="Registrar comanda y enviarla a cocina"><bpmn:incoming>F7</bpmn:incoming><bpmn:outgoing>F8</bpmn:outgoing></bpmn:serviceTask>
 <bpmn:task id="P1" name="Marcar comanda en preparación"><bpmn:incoming>F8</bpmn:incoming><bpmn:outgoing>F9</bpmn:outgoing></bpmn:task>
-<bpmn:task id="P2" name="Preparar pedido"><bpmn:incoming>F9</bpmn:incoming><bpmn:outgoing>F10</bpmn:outgoing></bpmn:task>
+<bpmn:task id="P2" name="Preparar los productos"><bpmn:incoming>F9</bpmn:incoming><bpmn:outgoing>F10</bpmn:outgoing></bpmn:task>
 <bpmn:task id="P3" name="Marcar comanda como lista"><bpmn:incoming>F10</bpmn:incoming><bpmn:outgoing>F11</bpmn:outgoing></bpmn:task>
 <bpmn:serviceTask id="S2" name="Notificar a la moza"><bpmn:incoming>F11</bpmn:incoming><bpmn:outgoing>F12</bpmn:outgoing></bpmn:serviceTask>
 <bpmn:task id="T5" name="Retirar los productos de cocina"><bpmn:incoming>F12</bpmn:incoming><bpmn:outgoing>F13</bpmn:outgoing></bpmn:task>
@@ -66,7 +66,7 @@
 <bpmn:sequenceFlow id="F13" sourceRef="T5" targetRef="T6" />
 <bpmn:sequenceFlow id="F14" sourceRef="T6" targetRef="T7" />
 <bpmn:sequenceFlow id="F15" sourceRef="T7" targetRef="G2" />
-<bpmn:sequenceFlow id="F16" name="Sí" sourceRef="G2" targetRef="J1" />
+<bpmn:sequenceFlow id="F16" name="Sí: se agrega al pedido abierto" sourceRef="G2" targetRef="J1" />
 <bpmn:sequenceFlow id="F17" name="No" sourceRef="G2" targetRef="T8" />
 <bpmn:sequenceFlow id="F18" sourceRef="T8" targetRef="S3" />
 <bpmn:sequenceFlow id="F19" sourceRef="S3" targetRef="T9" />
@@ -137,7 +137,7 @@
 <bpmndi:BPMNEdge id="F13_di" bpmnElement="F13"><di:waypoint x="2255" y="330" /><di:waypoint x="2305" y="330" /></bpmndi:BPMNEdge>
 <bpmndi:BPMNEdge id="F14_di" bpmnElement="F14"><di:waypoint x="2425" y="330" /><di:waypoint x="2475" y="330" /></bpmndi:BPMNEdge>
 <bpmndi:BPMNEdge id="F15_di" bpmnElement="F15"><di:waypoint x="2595" y="330" /><di:waypoint x="2650" y="330" /></bpmndi:BPMNEdge>
-<bpmndi:BPMNEdge id="F16_di" bpmnElement="F16"><di:waypoint x="2675" y="355" /><di:waypoint x="2675" y="622" /><di:waypoint x="415" y="622" /><di:waypoint x="415" y="355" /><bpmndi:BPMNLabel><dc:Bounds x="2681" y="361" width="70" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="F16_di" bpmnElement="F16"><di:waypoint x="2675" y="355" /><di:waypoint x="2675" y="622" /><di:waypoint x="415" y="622" /><di:waypoint x="415" y="355" /><bpmndi:BPMNLabel><dc:Bounds x="2681" y="385" width="95" height="40" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
 <bpmndi:BPMNEdge id="F17_di" bpmnElement="F17"><di:waypoint x="2700" y="330" /><di:waypoint x="2755" y="330" /><bpmndi:BPMNLabel><dc:Bounds x="2704" y="310" width="45" height="14" /></bpmndi:BPMNLabel></bpmndi:BPMNEdge>
 <bpmndi:BPMNEdge id="F18_di" bpmnElement="F18"><di:waypoint x="2875" y="330" /><di:waypoint x="2900" y="330" /><di:waypoint x="2900" y="940" /><di:waypoint x="2925" y="940" /></bpmndi:BPMNEdge>
 <bpmndi:BPMNEdge id="F19_di" bpmnElement="F19"><di:waypoint x="3045" y="940" /><di:waypoint x="3070" y="940" /><di:waypoint x="3070" y="330" /><di:waypoint x="3095" y="330" /></bpmndi:BPMNEdge>
