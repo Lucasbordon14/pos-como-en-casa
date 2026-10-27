@@ -103,7 +103,7 @@ Meta: implementar el sistema en funcionamiento en el local en un plazo máximo d
 |---|---|
 | **Fórmula** | Desvío de plazo = semana real de cumplimiento del hito − semana planificada. Seguimiento: (tareas terminadas a la fecha ÷ tareas planificadas a la fecha) × 100 |
 | **Estándar** | Desvío ≤ 0 semanas en el hito final (semana 20). Seguimiento: 100 % de las tareas de la ruta crítica al día. |
-| **Frecuencia** | Semanal (revisión del tablero), y en cada hito de control: validación de prototipos (semana 6), prueba integral (semana 16) y evaluación de resultados (semana 20). |
+| **Frecuencia** | Semanal (revisión del tablero), y en cada hito de control: validación de prototipos (semana 6; semana 7 tras el desvío N.º 1), prueba integral (semana 16) y evaluación de resultados (semana 20). |
 | **Fuente del dato** | Diagrama de Gantt (Entrega N.º 2) como plan, y tablero de Jira como registro del avance real. Como establece la Entrega N.º 2, "el seguimiento de las tareas se realizará en Jira". Siguiendo Scrum, las tareas del Gantt se cargan en el backlog de cada sprint a medida que avanza el proyecto. Por eso hoy Jira tiene solo las tres historias de usuario del Sprint 1. |
 | **Responsable** | Seguimiento: ambos integrantes, porque la ruta crítica incluye tareas de los dos (Entrega N.º 2). Evaluación final: Lucas (5.4). |
 
@@ -119,7 +119,7 @@ Si se detecta un atraso en una tarea de la ruta crítica, la acción correctiva 
 | **Desvío** | +1 semana. |
 | **Causa** | La tarea se postergó porque el equipo organizó su trabajo según los requisitos de cada entrega académica, y las historias de usuario recién se exigieron en la Entrega N.º 4. |
 | **Acción correctiva** | Se usó la holgura de la semana 6. El diseño de la base de datos (2.1) y el diseño de interfaces (2.2), que dependen de 1.4, pasan a las semanas 5–6, y el hito de validación de prototipos (2.3), a la semana 7. La construcción de la base de datos (3.1) sigue empezando en la semana 7, por lo que la ruta crítica y el plazo final no cambian. El margen de contingencia de la semana 12 queda intacto. |
-| **Impacto en otros hitos** | El hito 2.3 se corre una semana, pero no pertenece a la ruta crítica: la tarea que depende de él (3.2) empieza en la semana 9. |
+| **Impacto en otros hitos** | El hito 2.3 se corre una semana, pero no pertenece a la ruta crítica: las tareas que dependen de él, 3.2 y 4.4, empiezan en las semanas 9 y 15. |
 | **Aprendizaje** | Las tareas del Gantt se cargan en el backlog de cada sprint, para que no dependan de las fechas de entrega. |
 
 ## Acción ante desvíos
